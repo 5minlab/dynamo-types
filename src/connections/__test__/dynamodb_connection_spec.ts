@@ -2,7 +2,7 @@ import { expect } from "chai";
 
 import { DynamoDBConnection } from "../dynamodb_connection";
 
-import * as AWS from "aws-sdk";
+import * as DynamoDB from "aws-sdk/clients/dynamodb";
 
 describe(DynamoDBConnection.name, () => {
   describe("#constructor", () => {
@@ -15,14 +15,14 @@ describe(DynamoDBConnection.name, () => {
   describe("#documentClient", () => {
     it("should return documentClient", () => {
       const conn = new DynamoDBConnection({ endpoint: undefined, enableAWSXray: false });
-      expect(conn.documentClient).to.be.instanceof(AWS.DynamoDB.DocumentClient);
+      expect(conn.documentClient).to.be.instanceof(DynamoDB.DocumentClient);
     });
   });
 
   describe("#client", () => {
     it("should return client", () => {
       const conn = new DynamoDBConnection({ endpoint: undefined, enableAWSXray: false });
-      expect(conn.client).to.be.instanceof(AWS.DynamoDB);
+      expect(conn.client).to.be.instanceof(DynamoDB);
     });
   });
 });

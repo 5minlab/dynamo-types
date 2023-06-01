@@ -1,14 +1,14 @@
 import { Connection } from "./connection";
 
 import * as AWS from "aws-sdk";
-import { DynamoDB } from "aws-sdk";
+import * as DynamoDB from "aws-sdk/clients/dynamodb";
 
 import * as HTTP from "http";
 import * as HTTPS from "https";
 
 export class DynamoDBConnection implements Connection {
-  private __documentClient: AWS.DynamoDB.DocumentClient; // tslint:disable-line
-  private __client: AWS.DynamoDB; // tslint:disable-line
+  private __documentClient: DynamoDB.DocumentClient; // tslint:disable-line
+  private __client: DynamoDB; // tslint:disable-line
 
   constructor(options: {
     region?: string;

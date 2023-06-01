@@ -1,6 +1,6 @@
 import * as Metadata from "../../metadata";
 
-import { DynamoDB } from "aws-sdk";
+import * as DynamoDB from "aws-sdk/clients/dynamodb";
 import * as _ from "lodash";
 
 export async function createTable(metadata: Metadata.Table.Metadata) {

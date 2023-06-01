@@ -1,4 +1,4 @@
-import { DynamoDB } from "aws-sdk";
+import * as DynamoDB from "aws-sdk/clients/dynamodb";
 
 import * as Codec from "../codec";
 import * as Metadata from "../metadata";
