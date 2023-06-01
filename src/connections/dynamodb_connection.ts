@@ -26,12 +26,17 @@ export class DynamoDBConnection implements Connection {
     if (options.enableAWSXray) {
       // Since "require" itself does something for this lib, such as logging
       // importing this only when it's needed
+      /*
       const AWSXRay = require("aws-xray-sdk-core");
       const aws = AWSXRay.captureAWS(AWS);
       this.__client = new aws.DynamoDB(dynamoDBOptions);
       this.__documentClient = new aws.DynamoDB.DocumentClient({
         service: this.__client,
       });
+      */
+      // 최상위 aws-sdk로 직접 import하는걸 막아서 초기화 시간을 줄이고 싶다.
+      // xray 어차피 안쓰니까 코드 제거해서 작동하는지 확인해보자
+      throw new Error("x-ray not supported");
     } else {
       this.__client = new DynamoDB(dynamoDBOptions);
       this.__documentClient = new DynamoDB.DocumentClient({
