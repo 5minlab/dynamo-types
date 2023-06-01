@@ -1,6 +1,6 @@
 {
   "name": "@5minlab/dynamo-types",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "DynamoDB ORM for Typescript",
   "main": "./dst/index.js",
   "typings": "./dst/index.d.ts",
@@ -13,6 +13,9 @@
     "test:local": "env DYNAMO_TYPES_ENDPOINT=http://127.0.0.1:8000 npm test",
     "prepublishOnly": "npm run build",
     "lint": "tslint -c tslint.json 'src/**/*.ts'"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@5minlab"
   },
   "repository": {
     "type": "git",
